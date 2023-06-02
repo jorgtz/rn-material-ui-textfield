@@ -41,6 +41,8 @@ export default class Label extends PureComponent {
 
     style: Text.propTypes.style,
     label: PropTypes.string,
+
+    error: PropTypes.string,
   }
 
   render() {
@@ -58,14 +60,17 @@ export default class Label extends PureComponent {
       style,
       focusAnimation,
       labelAnimation,
+      error,
       ...props
     } = this.props
+    console.log('INSIDE LABEL', this.props)
 
     if (label == null) {
       return null
     }
 
-    let color = disabled
+    let color = error ? errorColor : 
+    disabled
       ? baseColor
       : restricted
       ? errorColor

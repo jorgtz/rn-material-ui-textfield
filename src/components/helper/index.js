@@ -69,7 +69,7 @@ export default class Helper extends PureComponent {
     let textStyle = {
       opacity,
 
-      color: !disabled && errored ? errorColor : baseColor,
+      color: errored ? errorColor : baseColor,
     }
 
     return <Animated.Text style={[styles.text, style, textStyle]}>{text}</Animated.Text>

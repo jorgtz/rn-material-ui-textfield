@@ -33,6 +33,7 @@ export default class Line extends PureComponent {
       left: PropTypes.number,
       right: PropTypes.number,
     }),
+    error: PropTypes.string
   }
 
   borderProps() {
@@ -47,9 +48,16 @@ export default class Line extends PureComponent {
       tintColor,
       errorColor,
       focusAnimation,
+      error
     } = this.props
 
     if (disabled) {
+      if (errorColor && error) {
+        return {
+          borderColor: errorColor,
+          borderWidth: activeLineWidth,
+        }
+      }
       return {
         borderColor: baseColor,
         borderWidth: disabledLineWidth,

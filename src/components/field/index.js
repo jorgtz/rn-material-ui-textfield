@@ -454,9 +454,10 @@ export default class TextField extends PureComponent {
   }
 
   inputStyle() {
-    let { fontSize, baseColor, textColor, disabled, multiline } = this.props
+    let { fontSize, baseColor, textColor, disabled, multiline, errorColor } = this.props
+    let {error } = this.state
 
-    let color = disabled || this.isDefaultVisible() ? baseColor : textColor
+    let color = error? errorColor: disabled || this.isDefaultVisible() ? baseColor : textColor
 
     let style = {
       fontSize,
@@ -481,10 +482,10 @@ export default class TextField extends PureComponent {
   }
 
   renderLabel(props) {
+    console.log('RENDERE LABER', this.state)
     let offset = this.labelOffset()
 
     let { label, fontSize, labelFontSize, labelTextStyle } = this.props
-
     return (
       <Label
         {...props}
@@ -493,6 +494,7 @@ export default class TextField extends PureComponent {
         offset={offset}
         label={label}
         style={labelTextStyle}
+        error={this.state.error}
       />
     )
   }
@@ -614,7 +616,7 @@ export default class TextField extends PureComponent {
       containerStyle,
       inputContainerStyle: inputContainerStyleOverrides,
     } = this.props
-
+console.log('PT', this.props)
     let restricted = this.isRestricted()
     let contentInset = this.contentInset()
 
