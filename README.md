@@ -50,8 +50,6 @@ class Example extends Component {
 
   onSubmit = () => {
     let { current: field } = this.fieldRef
-
-    console.log(field.value())
   }
 
   formatText = (text) => {

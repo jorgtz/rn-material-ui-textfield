@@ -40,7 +40,6 @@ export default class OutlinedTextField extends TextField {
     let { fontSize, labelFontSize } = this.props
     let { labelWidth } = this.state
 
-
     let scale = labelFontSize / fontSize
 
     labelWidth.setValue(lines[0].width * scale)
@@ -54,8 +53,7 @@ export default class OutlinedTextField extends TextField {
 
   renderLine(props) {
     let { labelWidth } = this.state
-    console.log('PERROS', this.state)
 
-    return <Outline {...props} labelWidth={labelWidth} error={this.state.error}/>
+    return <Outline {...props} labelWidth={labelWidth} error={this.state.error} />
   }
 }

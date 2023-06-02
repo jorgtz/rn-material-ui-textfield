@@ -63,14 +63,14 @@ export default class Label extends PureComponent {
       error,
       ...props
     } = this.props
-    console.log('INSIDE LABEL', this.props)
 
     if (label == null) {
       return null
     }
 
-    let color = error ? errorColor : 
-    disabled
+    let color = error
+      ? errorColor
+      : disabled
       ? baseColor
       : restricted
       ? errorColor
